@@ -4,10 +4,9 @@ import time
 import json
 
 # PLEASE GET YOUR ANIWAVE SESSION FROM https://aniwave.to/user/continue-watching and use an extension like EditThisCookie and get the value of the cookie called "session"
-# NOTE THIS WILL SAVE ALL IMAGES FROM EACH ANIME TO THE CURRENT DIRECTORY; CONSIDER PUTTING THIS SCRIPT IN A FOLDER.
 # Made by Shehajeez, plz dont skid thanks!
 
-funny_aniwave_session = "COOKIEHEREPLZ" 
+funny_aniwave_session = "" 
 u = "https://aniwave.to/user/continue-watching?page="
 c = {"session": funny_aniwave_session}
 d = 2
@@ -21,9 +20,16 @@ while True:
     time.sleep(d)
 
     if r.status_code == 200:
-        auser = ts = (title.find_next('div', class_='name') or '').get_text(strip=True)
-        print(f"Logged in as {user} ")
         s = BeautifulSoup(r.text, 'html.parser')
+
+        auser = s.find('div', class_='name')
+        if auser:
+            auser = auser.get_text(strip=True)
+            print(f"Logged in as {auser}")
+        else:
+            print("Could not find user information.")
+            auser = "Unknown"
+
         t = s.find_all('a', class_='name d-title')
 
         if not t:
