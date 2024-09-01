@@ -1,1 +1,1 @@
-Kairo, something that gets worked on when there's nothing to do.
+Welcome To Kairo, a fully open-source project.
