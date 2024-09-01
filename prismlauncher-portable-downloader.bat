@@ -6,30 +6,30 @@ setlocal enabledelayedexpansion
 
 :: Created by the GoatBypassers Team
 
-:: Fetch latest version info from API
+:: Get the latest version of PrismLauncher via the Kairo API
 for /f "delims=" %%i in ('curl -s https://kairo-api.goatbypassers.xyz/api/prismlauncher') do set "API_RESPONSE=%%i"
 
-:: Extract version from API response
+:: Extract version from JSON
 for /f "tokens=2 delims=:," %%a in ('echo !API_RESPONSE! ^| find "prismlauncher_version"') do set "PRISMLAUNCHER_VERSION=%%~a"
 set "PRISMLAUNCHER_VERSION=!PRISMLAUNCHER_VERSION:"=!"
 
-:: Construct the download URL
+:: Build / construct the URL using the version from the Kairo API.
 set "PRISMLAUNCHER_URL=https://github.com/PrismLauncher/PrismLauncher/releases/download/!PRISMLAUNCHER_VERSION!/PrismLauncher-Windows-MinGW-w64-Portable-!PRISMLAUNCHER_VERSION!.zip"
 
 title PrismLauncher Downloader (v!PRISMLAUNCHER_VERSION!)
 
-:: Define variables
+:: Define variables to make my life easier
 set "JAVA8_URL=https://encrypted-bytes.com/download/34712f1fa0c1d3ee365b6942140e885e82076e48489a363a8525ebb90251e43f/d6f5f002be9c1682acebfaab3ee35667/0ff243e6927f3154b8a36a391d33eb07795d90eb82f006cfab36575e0a428fba8c88b0096ea4718d0b2fe90ec3d8f53ed780b1df291fa9c2ce13b6310ca2f69b66f826e7bc56e0f236d1a2918af29ad2/1bae4cdd14b01d6dc8b1a9b8483e6df4"
 set "JAVA17_URL=https://encrypted-bytes.com/download/6ccc7ebf87095daa2d4a973222501107f125792fd87ea3fb4254b53e9e3d5395/c9b18f7dba70c908e0b07ae3e58c67db/962067baca8058a26d256a26d7b1dbea864117b8cd5418f9d2c8f76fd7789bc3a5965dfa20015d8ca86804b3461ac4b9d66436bb08b278861165564cd149f286993f4c1df2fd514d7c6fe8e225388f03/de082bd02b927744293e0452e227f01c"
 set "JAVA21_URL=https://encrypted-bytes.com/download/9d3fa79b6ab9656a975d79f4d194c64692e4bb3a4c2c7856dc198eac65a056a1/ad2ecfc27b8600af10ff5d8f066d0f13/41b245d892139c1f9675d59ea7423571b247ba31909369e1e091a0b1de7a18c539ec2f66d50445d5c2fbc884f16e29a477bb7264fad027403b54b284d2059e56a60052591aa49fd4a3740fc52aaab3fd/4ab38d4071ef3a92dc1923ebee7686a9"
 set "TEMP_DIR=%TEMP%\PrismLauncherTemp"
 set "INSTALL_DIR=%CD%\PrismLauncher"
 
-:: Create necessary directories
+:: Create necessary directories / folders / whatever
 mkdir "%TEMP_DIR%" 2>nul
 mkdir "%INSTALL_DIR%" 2>nul
 
-:: Display welcome message
+:: Display welcome message / Echo messages to make the script less boring to stare at.
 echo Welcome to the PrismLauncher Downloader
 echo This tool includes Java 8, 17, and 21 without requiring installation.
 echo Created by the GoatBypassers Team
