@@ -1,1 +1,3 @@
-Hey, welcome to Kairo. A side-project of mine. This will have stuff that I work on when im bored.
+Kairo: A side-project from Shehajeez from GoatBypassers.
+
+Kairo is apart of GoatBypassers.
