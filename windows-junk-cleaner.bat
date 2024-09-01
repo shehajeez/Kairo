@@ -49,4 +49,4 @@ for %%F in ("%folder%\*") do (
 )
 
 echo Deleted %files% files, %folders% folders.
-goto :eof
+goto :completedstageidk
