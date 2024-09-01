@@ -1,3 +1,5 @@
+# THIS TOOL NO LONGER WORKS; AS ANIWAVE HAS FULLY SHUTDOWN
+
 import requests
 from bs4 import BeautifulSoup
 import time
