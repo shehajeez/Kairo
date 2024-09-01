@@ -1,3 +1,1 @@
-Kairo: A side-project from Shehajeez from GoatBypassers.
-
-Kairo is apart of GoatBypassers.
+Kairo, something that gets worked on when there's nothing to do.
