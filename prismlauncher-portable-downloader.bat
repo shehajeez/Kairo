@@ -42,17 +42,14 @@ call :download_and_extract "PrismLauncher" "!PRISMLAUNCHER_URL!" "%TEMP_DIR%\Pri
 if errorlevel 1 goto :error
 
 :: Download and extract Java versions
-call :download_and_extract "Java 8" "%JAVA8_URL%" "%TEMP_DIR%\Java8.zip" "%INSTALL_DIR%"
+call :download_and_extract "Java 8" "%JAVA8_URL%" "%TEMP_DIR%\java8.zip" "%INSTALL_DIR%"
 if errorlevel 1 goto :error
-echo Java 8 zip file: Java8.zip
 
-call :download_and_extract "Java 17" "%JAVA17_URL%" "%TEMP_DIR%\Java17.zip" "%INSTALL_DIR%"
+call :download_and_extract "Java 17" "%JAVA17_URL%" "%TEMP_DIR%\java17.zip" "%INSTALL_DIR%"
 if errorlevel 1 goto :error
-echo Java 17 zip file: Java17.zip
 
-call :download_and_extract "Java 21" "%JAVA21_URL%" "%TEMP_DIR%\Java21.zip" "%INSTALL_DIR%"
+call :download_and_extract "Java 21" "%JAVA21_URL%" "%TEMP_DIR%\java21.zip" "%INSTALL_DIR%"
 if errorlevel 1 goto :error
-echo Java 21 zip file: Java21.zip
 
 :: Clean up
 echo Cleaning up temporary files...
@@ -84,7 +81,7 @@ echo %~1 has been successfully downloaded and extracted.
 exit /b 0
 
 :error
-echo Error occured during download.
+echo Error occured during something. Please try again later.
 echo Please check your internet connection and try again.
 pause >nul
 exit /b 1
