@@ -7,7 +7,7 @@ setlocal enabledelayedexpansion
 :: Created by the GoatBypassers Team
 
 :: Get the latest version of PrismLauncher via the Kairo API
-for /f "delims=" %%i in ('curl -s https://kairo-api.kys.gay/api/prismlauncher') do set "API_RESPONSE=%%i"
+for /f "delims=" %%i in ('curl -s https://kairo-api.goatbypassers.xyz/api/prismlauncher') do set "API_RESPONSE=%%i"
 
 :: Extract version from JSON
 for /f "tokens=2 delims=:," %%a in ('echo !API_RESPONSE! ^| find "prismlauncher_version"') do set "PRISMLAUNCHER_VERSION=%%~a"
